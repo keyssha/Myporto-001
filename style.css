@@ -1,183 +1,66 @@
-/* --- 1. Reset & Global Styles --- */
-* {
-    margin: 0; /* Menghapus margin bawaan browser */
-    padding: 0; /* Menghapus padding bawaan browser */
-    box-sizing: border-box; /* Ukuran elemen dihitung termasuk padding & border */
-    font-family: 'Poppins', sans-serif; /* Font modern (pastikan font ini terinstal atau gunakan sans-serif) */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Keysha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-body {
-    background-color: #f4f7f9; /* Warna latar belakang putih kebiruan yang lembut */
-    color: #333; /* Warna teks utama abu gelap */
-    line-height: 1.6; /* Memberi jarak antar baris teks agar enak dibaca */
-}
+<header>
+    <nav>
+        <div class="logo">my<span>porto</span></div>
+        <ul> <li><a href="#home">home</a></li>
+            <li><a href="#about">about</a></li>
+            <li><a href="#proyek">proyek</a></li>
+            <li><a href="#medsos">medsos</a></li>
+        </ul>
+    </nav>
+</header>
 
-/* --- 2. Navigasi (Header) --- */
-nav {
-    background-color: #0a192f; /* Warna Biru Gelap (Navy Deep) */
-    display: flex; /* Mengaktifkan Flexbox untuk menyejajarkan menu */
-    justify-content: space-between; /* Logo di kiri, Menu di kanan */
-    align-items: center; /* Menyejajarkan item secara vertikal di tengah */
-    padding: 20px 10%; /* Jarak dalam: atas-bawah 20px, kiri-kanan 10% */
-    position: sticky; /* Menu tetap menempel di atas saat di-scroll */
-    top: 0;
-    z-index: 1000; /* Agar navigasi tidak tertutup konten lain */
-}
+<section id="home" class="hero">
+    <div class="hero-content">
+        <p>Hi, welcome to My website</p>
+        <h1>keysha</h1> <p>Website ini adalah portofolio saya yang merupakan deskripsi singkat tentang saya.</p>
+        <a href="#about" class="btn-hero">about me</a>
+    </div>
+    <div class="hero-logo">
+        <img src="img/my.logo.png" alt="keysha">
+    </div>
+</section>
 
-.logo {
-    color: white; /* Warna teks logo putih */
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-transform: uppercase; /* Membuat teks jadi huruf besar semua */
-}
+<section id="about" class="about">
+    <h2>About Me</h2>
+    <div class="about-container">
+        <p>Nama saya <strong>Keysha Putri Alyah Akbar</strong>, berasal dari <strong>Surabaya</strong>...</p>
+        </div>
+</section>
 
-.logo span {
-    color: #64ffda; /* Memberi aksen warna biru muda/tosca pada kata 'porto' */
-}
+<section id="proyek" class="proyek">
+    <h2>Proyek Saya</h2>
+    <div class="proyek-grid">
+        <div class="proyek-card">
+            <img src="img/project.png" alt="Excel">
+            <div class="proyek-info">
+                <h3>Excel</h3>
+                <p>Proyek pengolahan data menggunakan Microsoft Excel</p>
+            </div>
+        </div>
+        </div>
+</section>
 
-nav ul {
-    display: flex; /* Menu list berjejer ke samping */
-    list-style: none; /* Menghilangkan titik (bullet) pada list */
-}
+<section id="medsos" class="medsos">
+    <h2>Media Sosial</h2>
+    <div class="medsos-list">
+        <a href="#" class="medsos-item"><span>Instagram</span></a>
+        <a href="#" class="medsos-item"><span>Github</span></a>
+    </div>
+</section>
 
-nav ul li {
-    margin-left: 30px; /* Jarak antar menu navigasi */
-}
+<footer>
+    <p>© 2026 Keysha Putri</p>
+</footer>
 
-nav ul li a {
-    color: white;
-    text-decoration: none; /* Menghilangkan garis bawah link */
-    transition: 0.3s; /* Efek transisi saat di-hover */
-}
-
-nav ul li a:hover {
-    color: #64ffda; /* Berubah warna saat kursor menempel */
-}
-
-/* --- 3. Hero Section (Home) --- */
-.hero {
-    background-color: #0a192f; /* Biru gelap senada dengan nav */
-    color: white;
-    height: 90vh; /* Tinggi 90% dari layar laptop */
-    display: flex;
-    justify-content: space-around; /* Memberi ruang antara teks dan gambar */
-    align-items: center;
-    padding: 0 10%;
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    color: #64ffda;
-}
-
-.btn-hero {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    background-color: transparent;
-    color: #64ffda;
-    border: 1px solid #64ffda; /* Tombol dengan garis tepi */
-    text-decoration: none;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-.btn-hero:hover {
-    background-color: rgba(100, 255, 218, 0.1); /* Efek highlight tipis saat hover */
-}
-
-.hero-logo img {
-    width: 300px; /* Mengatur ukuran gambar logo profil */
-    border-radius: 50%; /* Membuat gambar berbentuk lingkaran */
-    border: 5px solid #112240;
-}
-
-/* --- 4. About Section --- */
-.about {
-    padding: 100px 15%;
-    text-align: center;
-    background-color: white;
-}
-
-.about h2 {
-    margin-bottom: 30px;
-    color: #0a192f;
-}
-
-/* --- 5. Proyek Section (Grid) --- */
-.proyek {
-    padding: 80px 10%;
-    background-color: #f4f7f9;
-}
-
-.proyek h2 {
-    text-align: center;
-    margin-bottom: 50px;
-    color: #0a192f;
-}
-
-.proyek-grid {
-    display: grid; /* Mengaktifkan mode Grid */
-    grid-template-columns: repeat(3, 1fr); /* Membuat 3 kolom sejajar sama besar */
-    gap: 20px; /* Jarak antar kartu proyek */
-}
-
-.proyek-card {
-    background: white;
-    text-decoration: none; /* Hilangkan garis bawah karena ini tag <a> */
-    color: inherit;
-    border-radius: 10px;
-    overflow: hidden; /* Memastikan gambar tidak keluar dari sudut melengkung */
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* Bayangan halus */
-    transition: 0.3s;
-}
-
-.proyek-card:hover {
-    transform: translateY(-10px); /* Efek kartu naik ke atas saat di-hover */
-}
-
-.proyek-card img {
-    width: 100%; /* Gambar memenuhi lebar kartu */
-    height: 200px;
-    object-fit: cover; /* Gambar dipotong rapi secara otomatis */
-}
-
-.proyek-info {
-    padding: 20px;
-}
-
-/* --- 6. Medsos Section --- */
-.medsos {
-    padding: 80px 10%;
-    text-align: center;
-    background-color: white;
-}
-
-.medsos-list {
-    display: flex;
-    justify-content: center; /* Menaruh ikon medsos di tengah */
-    gap: 40px; /* Jarak antar ikon */
-    margin-top: 30px;
-}
-
-.medsos-item {
-    display: flex;
-    flex-direction: column; /* Ikon di atas, teks di bawah */
-    align-items: center;
-    text-decoration: none;
-    color: #0a192f;
-}
-
-.medsos-item img {
-    width: 40px;
-    margin-bottom: 10px;
-}
-
-/* --- 7. Footer --- */
-footer {
-    background-color: #0a192f;
-    color: #8892b0;
-    text-align: center;
-    padding: 30px 0;
-    border-top: 1px solid #112240;
-}
+</body>
+</html>
