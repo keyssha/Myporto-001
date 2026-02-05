@@ -1,66 +1,201 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Keysha</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* --- 1. RESET & DASAR --- */
+* {
+    margin: 0; /* Menghapus margin bawaan semua elemen */
+    padding: 0; /* Menghapus padding bawaan semua elemen */
+    box-sizing: border-box; /* Menghitung padding dalam lebar total elemen */
+    font-family: 'Poppins', sans-serif; /* Menggunakan font modern */
+}
 
-<header>
-    <nav>
-        <div class="logo">my<span>porto</span></div>
-        <ul> <li><a href="#home">home</a></li>
-            <li><a href="#about">about</a></li>
-            <li><a href="#proyek">proyek</a></li>
-            <li><a href="#medsos">medsos</a></li>
-        </ul>
-    </nav>
-</header>
+body {
+    background-color: #fff5f7; /* Latar belakang putih kemerahan sangat lembut */
+    color: #444; /* Warna teks abu-abu gelap agar nyaman dibaca */
+    line-height: 1.6; /* Memberi ruang antar baris teks */
+}
 
-<section id="home" class="hero">
-    <div class="hero-content">
-        <p>Hi, welcome to My website</p>
-        <h1>keysha</h1> <p>Website ini adalah portofolio saya yang merupakan deskripsi singkat tentang saya.</p>
-        <a href="#about" class="btn-hero">about me</a>
-    </div>
-    <div class="hero-logo">
-        <img src="img/my.logo.png" alt="keysha">
-    </div>
-</section>
+/* --- 2. NAVIGASI --- */
+header {
+    background-color: #ffffff; /* Warna putih bersih */
+    position: sticky; /* Menu tetap di atas saat di-scroll */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(255, 77, 109, 0.1); /* Bayangan pink tipis */
+}
 
-<section id="about" class="about">
-    <h2>About Me</h2>
-    <div class="about-container">
-        <p>Nama saya <strong>Keysha Putri Alyah Akbar</strong>, berasal dari <strong>Surabaya</strong>...</p>
-        </div>
-</section>
+nav {
+    display: flex; /* Mengaktifkan flexbox untuk posisi sejajar */
+    justify-content: space-between; /* Logo di kiri, menu di kanan */
+    align-items: center; /* Rata tengah secara vertikal */
+    padding: 15px 8%; /* Ruang dalam navigasi */
+}
 
-<section id="proyek" class="proyek">
-    <h2>Proyek Saya</h2>
-    <div class="proyek-grid">
-        <div class="proyek-card">
-            <img src="img/project.png" alt="Excel">
-            <div class="proyek-info">
-                <h3>Excel</h3>
-                <p>Proyek pengolahan data menggunakan Microsoft Excel</p>
-            </div>
-        </div>
-        </div>
-</section>
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff4d6d; /* Warna pink utama */
+}
 
-<section id="medsos" class="medsos">
-    <h2>Media Sosial</h2>
-    <div class="medsos-list">
-        <a href="#" class="medsos-item"><span>Instagram</span></a>
-        <a href="#" class="medsos-item"><span>Github</span></a>
-    </div>
-</section>
+.logo span {
+    color: #ffb3c1; /* Variasi warna pink muda pada logo */
+}
 
-<footer>
-    <p>© 2026 Keysha Putri</p>
-</footer>
+nav ul {
+    display: flex; /* Menu list berjejer ke samping */
+    list-style: none; /* Menghilangkan titik list */
+}
 
-</body>
-</html>
+nav ul li {
+    margin-left: 30px; /* Jarak antar menu */
+}
+
+nav ul li a {
+    text-decoration: none; /* Menghilangkan garis bawah link */
+    color: #555;
+    font-weight: 500;
+    transition: 0.3s; /* Efek halus saat warna berubah */
+}
+
+nav ul li a:hover {
+    color: #ff4d6d; /* Berubah jadi pink saat diarahkan kursor */
+}
+
+/* --- 3. HERO SECTION (HOME) --- */
+.hero {
+    display: flex; /* Membagi area teks dan gambar */
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 10%;
+    min-height: 80vh;
+    background: linear-gradient(135deg, #ffffff 0%, #ffeef2 100%);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem; /* Ukuran nama yang besar dan menonjol */
+    color: #ff4d6d;
+    margin-bottom: 10px;
+}
+
+.btn-hero {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background-color: #ff4d6d;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px; /* Membuat tombol berbentuk kapsul */
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+    transition: 0.3s;
+}
+
+.btn-hero:hover {
+    transform: translateY(-3px); /* Tombol sedikit naik saat di-hover */
+    background-color: #ff758f;
+}
+
+.hero-logo img {
+    width: 320px; /* Ukuran foto profil */
+    border-radius: 30px; /* Sudut melengkung halus */
+    border: 10px solid #ffffff;
+    box-shadow: 0 20px 40px rgba(255, 77, 109, 0.1);
+}
+
+/* --- 4. ABOUT SECTION --- */
+.about {
+    padding: 100px 15%;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.about h2 {
+    color: #ff4d6d;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+/* --- 5. PROYEK SECTION (GRID) --- */
+.proyek {
+    padding: 80px 10%;
+}
+
+.proyek h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ff4d6d;
+}
+
+.proyek-grid {
+    display: grid; /* Mengaktifkan sistem grid */
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom sejajar sama lebar */
+    gap: 25px; /* Jarak antar kartu proyek */
+}
+
+.proyek-card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden; /* Memotong gambar agar mengikuti sudut melengkung */
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+    border: 1px solid #ffe3e8;
+}
+
+.proyek-card:hover {
+    transform: translateY(-10px); /* Efek kartu terangkat */
+    box-shadow: 0 15px 30px rgba(255, 77, 109, 0.1);
+}
+
+.proyek-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Gambar tetap proporsional meski dipotong */
+}
+
+.proyek-info {
+    padding: 20px;
+}
+
+.proyek-info h3 {
+    color: #ff4d6d;
+    margin-bottom: 10px;
+}
+
+/* --- 6. MEDSOS --- */
+.medsos {
+    padding: 80px 10%;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.medsos-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.medsos-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #ff4d6d;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.medsos-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.medsos-item:hover {
+    opacity: 0.7; /* Sedikit transparan saat di-hover */
+}
+
+/* --- 7. FOOTER --- */
+footer {
+    padding: 40px;
+    background-color: #ff4d6d; /* Warna background pink pekat */
+    color: #ffffff; /* Teks putih */
+    text-align: center;
+}
