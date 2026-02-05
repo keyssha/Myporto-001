@@ -1,175 +1,232 @@
-/* --- 1. RESET & DASAR --- */
+/* Mengimpor Font agar terlihat lebih manis */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap');
+
+:root {
+    --pink-soft: #ffdae9;
+    --pink-dark: #f8a5c2;
+    --purple-light: #e0dbff;
+    --white: #ffffff;
+    --text-color: #5d5d5d;
+    --accent-color: #ff85a1;
+}
+
 * {
-    margin: 0; /* Menghapus margin bawaan semua elemen */
-    padding: 0; /* Menghapus padding bawaan semua elemen */
-    box-sizing: border-box; /* Menghitung padding dalam lebar total elemen */
-    font-family: 'Poppins', sans-serif; /* Menggunakan font modern */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #fff5f7; /* Latar belakang putih kemerahan sangat lembut */
-    color: #444; /* Warna teks abu-abu gelap agar nyaman dibaca */
-    line-height: 1.6; /* Memberi ruang antar baris teks */
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--white);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* --- 2. NAVIGASI --- */
-header {
-    background-color: #ffffff; /* Warna putih bersih */
-    position: sticky; /* Menu tetap di atas saat di-scroll */
-    top: 0;
+/* --- Dekorasi Pita Pixel (Animasi) --- */
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Menambahkan icon pita kecil di pojok sebagai aksen */
+body::before {
+    content: '🎀'; /* Kamu bisa ganti dengan image pita pixel jika punya */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(255, 77, 109, 0.1); /* Bayangan pink tipis */
+    animation: float 3s ease-in-out infinite;
+}
+
+/* --- Navigasi --- */
+header {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--pink-soft);
 }
 
 nav {
-    display: flex; /* Mengaktifkan flexbox untuk posisi sejajar */
-    justify-content: space-between; /* Logo di kiri, menu di kanan */
-    align-items: center; /* Rata tengah secara vertikal */
-    padding: 15px 8%; /* Ruang dalam navigasi */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: var(--accent-color);
     font-weight: bold;
-    color: #ff4d6d; /* Warna pink utama */
 }
 
 .logo span {
-    color: #ffb3c1; /* Variasi warna pink muda pada logo */
+    color: var(--pink-dark);
 }
 
 nav ul {
-    display: flex; /* Menu list berjejer ke samping */
-    list-style: none; /* Menghilangkan titik list */
+    display: flex;
+    list-style: none;
 }
 
 nav ul li {
-    margin-left: 30px; /* Jarak antar menu */
+    margin-left: 20px;
 }
 
 nav ul li a {
-    text-decoration: none; /* Menghilangkan garis bawah link */
-    color: #555;
+    text-decoration: none;
+    color: var(--text-color);
     font-weight: 500;
-    transition: 0.3s; /* Efek halus saat warna berubah */
+    transition: 0.3s;
+    font-size: 0.9rem;
+    text-transform: uppercase;
 }
 
 nav ul li a:hover {
-    color: #ff4d6d; /* Berubah jadi pink saat diarahkan kursor */
+    color: var(--accent-color);
+    border-bottom: 2px pink dotted;
 }
 
-/* --- 3. HERO SECTION (HOME) --- */
+/* --- Hero Section --- */
 .hero {
-    display: flex; /* Membagi area teks dan gambar */
+    display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 80px 10%;
+    background: linear-gradient(135deg, var(--pink-soft) 0%, var(--purple-light) 100%);
     min-height: 80vh;
-    background: linear-gradient(135deg, #ffffff 0%, #ffeef2 100%);
 }
 
 .hero-content h1 {
-    font-size: 3.5rem; /* Ukuran nama yang besar dan menonjol */
-    color: #ff4d6d;
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: var(--accent-color);
     margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    max-width: 500px;
 }
 
 .btn-hero {
     display: inline-block;
-    margin-top: 25px;
     padding: 12px 30px;
-    background-color: #ff4d6d;
-    color: #fff;
+    background-color: var(--white);
+    color: var(--accent-color);
     text-decoration: none;
-    border-radius: 50px; /* Membuat tombol berbentuk kapsul */
-    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     transition: 0.3s;
+    border: 2px solid var(--pink-dark);
 }
 
 .btn-hero:hover {
-    transform: translateY(-3px); /* Tombol sedikit naik saat di-hover */
-    background-color: #ff758f;
+    background-color: var(--pink-dark);
+    color: white;
+    transform: scale(1.05);
 }
 
 .hero-logo img {
-    width: 320px; /* Ukuran foto profil */
-    border-radius: 30px; /* Sudut melengkung halus */
-    border: 10px solid #ffffff;
-    box-shadow: 0 20px 40px rgba(255, 77, 109, 0.1);
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid var(--white);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* --- 4. ABOUT SECTION --- */
-.about {
-    padding: 100px 15%;
-    background-color: #ffffff;
-    text-align: center;
-}
-
-.about h2 {
-    color: #ff4d6d;
-    margin-bottom: 30px;
-    font-size: 2rem;
-}
-
-/* --- 5. PROYEK SECTION (GRID) --- */
-.proyek {
+/* --- Container & Titles --- */
+.container {
     padding: 80px 10%;
 }
 
-.proyek h2 {
+h2 {
     text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: var(--accent-color);
     margin-bottom: 40px;
-    color: #ff4d6d;
+    position: relative;
+}
+
+h2::after {
+    content: ' ✨';
+    font-size: 1.5rem;
+}
+
+/* --- About --- */
+.about-container {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px dashed var(--pink-dark);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-container p {
+    margin-bottom: 15px;
+}
+
+/* --- Proyek Grid --- */
+.bg-light {
+    background-color: #fff9fb;
 }
 
 .proyek-grid {
-    display: grid; /* Mengaktifkan sistem grid */
-    grid-template-columns: repeat(3, 1fr); /* 3 kolom sejajar sama lebar */
-    gap: 25px; /* Jarak antar kartu proyek */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
 }
 
 .proyek-card {
-    background: #ffffff;
-    border-radius: 20px;
-    overflow: hidden; /* Memotong gambar agar mengikuti sudut melengkung */
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
     text-decoration: none;
     color: inherit;
-    transition: 0.3s;
-    border: 1px solid #ffe3e8;
+    transition: 0.4s;
+    border: 1px solid var(--pink-soft);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
 }
 
 .proyek-card:hover {
-    transform: translateY(-10px); /* Efek kartu terangkat */
-    box-shadow: 0 15px 30px rgba(255, 77, 109, 0.1);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(255, 133, 161, 0.2);
 }
 
 .proyek-card img {
     width: 100%;
-    height: 200px;
-    object-fit: cover; /* Gambar tetap proporsional meski dipotong */
+    height: 180px;
+    object-fit: cover;
 }
 
 .proyek-info {
     padding: 20px;
+    text-align: center;
 }
 
 .proyek-info h3 {
-    color: #ff4d6d;
+    color: var(--accent-color);
     margin-bottom: 10px;
+    font-size: 1.2rem;
 }
 
-/* --- 6. MEDSOS --- */
-.medsos {
-    padding: 80px 10%;
-    text-align: center;
-    background-color: #ffffff;
-}
-
+/* --- Medsos --- */
 .medsos-list {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-top: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .medsos-item {
@@ -177,26 +234,43 @@ nav ul li a:hover {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: #ff4d6d;
-    font-weight: bold;
+    color: var(--text-color);
     transition: 0.3s;
 }
 
 .medsos-item img {
     width: 50px;
     height: 50px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    transition: 0.3s;
 }
 
 .medsos-item:hover {
-    opacity: 0.7; /* Sedikit transparan saat di-hover */
+    color: var(--accent-color);
+    transform: scale(1.1);
 }
 
-/* --- 7. FOOTER --- */
+/* --- Footer --- */
 footer {
-    padding: 40px;
-    background-color: #ff4d6d; /* Warna background pink pekat */
-    color: #ffffff; /* Teks putih */
     text-align: center;
+    padding: 40px;
+    background-color: var(--pink-soft);
+    color: var(--accent-color);
+    font-weight: 500;
 }
 
+/* Responsive untuk HP */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .hero-logo img {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 20px;
+    }
+    nav ul {
+        display: none; /* Sembunyikan menu di HP agar rapi, atau buat hamburger menu nanti */
+    }
+}
