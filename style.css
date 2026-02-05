@@ -1,0 +1,137 @@
+/* --- 1. VARIABEL & RESET --- */
+:root {
+  --primary-pink: #ff6b81;    /* Warna pink utama */
+  --light-pink: #fff0f3;      /* Pink sangat muda untuk background */
+  --white: #ffffff;           /* Putih bersih */
+  --dark-text: #2d3436;       /* Warna teks gelap agar kontras */
+  --transition: 0.3s ease;    /* Efek transisi halus untuk animasi */
+}
+
+* {
+  margin: 0;                  /* Menghapus margin bawaan browser */
+  padding: 0;                 /* Menghapus padding bawaan browser */
+  box-sizing: border-box;     /* Menghitung padding dalam total lebar elemen */
+  font-family: 'Segoe UI', sans-serif; /* Menggunakan font modern */
+}
+
+body {
+  background-color: var(--light-pink); /* Warna dasar halaman */
+  color: var(--dark-text);             /* Warna teks default */
+  line-height: 1.6;                    /* Jarak antar baris teks agar enak dibaca */
+}
+
+/* --- 2. NAVIGASI (Sticky Navbar) --- */
+nav {
+  background-color: var(--white);
+  padding: 1rem 10%;          /* Ruang dalam (atas-bawah, kiri-kanan) */
+  display: flex;              /* Mengaktifkan flexbox */
+  justify-content: space-between; /* Logo di kiri, menu di kanan */
+  align-items: center;        /* Menyejajarkan item secara vertikal */
+  position: sticky;           /* Navbar tetap di atas saat scroll */
+  top: 0;
+  z-index: 1000;              /* Memastikan navbar selalu di lapisan paling atas */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Efek bayangan halus */
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-pink);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;           /* Menghilangkan titik (bullet) pada list */
+}
+
+nav ul li {
+  margin-left: 2rem;          /* Jarak antar menu */
+}
+
+nav ul li a {
+  text-decoration: none;      /* Menghilangkan garis bawah pada link */
+  color: var(--dark-text);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+nav ul li a:hover {
+  color: var(--primary-pink); /* Warna berubah saat kursor menyentuh link */
+}
+
+/* --- 3. HERO SECTION --- */
+.hero {
+  height: 80vh;               /* Tinggi hero 80% dari tinggi layar */
+  display: flex;
+  flex-direction: column;     /* Elemen disusun menumpuk ke bawah */
+  justify-content: center;    /* Tengah secara vertikal */
+  align-items: center;        /* Tengah secara horizontal */
+  text-align: center;
+  background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://via.placeholder.com/1500x800'); /* Overlay putih transparan di atas gambar */
+  background-size: cover;     /* Gambar memenuhi seluruh area */
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  color: var(--primary-pink);
+  margin-bottom: 1rem;
+}
+
+/* --- 4. ABOUT SECTION --- */
+.about {
+  padding: 5rem 15%;          /* Ruang lega untuk bagian 'Tentang Saya' */
+  text-align: center;
+  background-color: var(--white);
+}
+
+/* --- 5. PROYEK (Grid System) --- */
+.proyek {
+  padding: 5rem 10%;
+}
+
+.proyek h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.grid-container {
+  display: grid;              /* Mengaktifkan sistem grid */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Kolom otomatis menyesuaikan lebar layar */
+  gap: 2rem;                  /* Jarak antar kartu proyek */
+}
+
+.card {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: 15px;        /* Sudut kartu yang membulat */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: var(--transition);
+  border-bottom: 4px solid transparent; /* Garis bawah tersembunyi */
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Efek kartu terangkat saat hover */
+  border-color: var(--primary-pink); /* Munculkan garis pink saat hover */
+}
+
+/* --- 6. MEDSOS & FOOTER --- */
+.medsos {
+  padding: 3rem;
+  text-align: center;
+  background-color: var(--light-pink);
+}
+
+.medsos a {
+  margin: 0 10px;
+  color: var(--primary-pink);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer {
+  background-color: var(--dark-text);
+  color: var(--white);
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+}
