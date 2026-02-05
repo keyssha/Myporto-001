@@ -1,13 +1,13 @@
-/* Mengimpor Font agar terlihat lebih manis */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap');
+/* Mengimpor Font Estetik */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap');
 
 :root {
-    --pink-soft: #ffdae9;
-    --pink-dark: #f8a5c2;
-    --purple-light: #e0dbff;
+    --pink-dark: #d81b60;    /* Pink Tua yang elegan */
+    --pink-medium: #f06292;  /* Pink Medium untuk aksen */
+    --pink-light: #fce4ec;   /* Pink Muda untuk background */
     --white: #ffffff;
-    --text-color: #5d5d5d;
-    --accent-color: #ff85a1;
+    --text-main: #4a4a4a;
+    --transition: all 0.3s ease;
 }
 
 * {
@@ -16,40 +16,46 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--white);
-    color: var(--text-color);
+    color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* --- Dekorasi Pita Pixel (Animasi) --- */
+/* --- Animasi Pita Pixel --- */
 @keyframes float {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(5deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
+    0% { transform: translateY(0px) rotate(-5deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(-5deg); }
 }
 
-/* Menambahkan icon pita kecil di pojok sebagai aksen */
-body::before {
-    content: '🎀'; /* Kamu bisa ganti dengan image pita pixel jika punya */
+/* Menaruh pita di beberapa sudut halaman */
+body::before, body::after {
+    content: '🎀'; 
     position: fixed;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
+    font-size: 2.5rem;
     z-index: 1000;
-    animation: float 3s ease-in-out infinite;
+    pointer-events: none;
+    animation: float 4s ease-in-out infinite;
 }
+
+body::before { top: 20px; left: 20px; }
+body::after { bottom: 20px; right: 20px; animation-delay: 2s; }
 
 /* --- Navigasi --- */
 header {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 1rem 5%;
     position: sticky;
     top: 0;
-    z-index: 100;
-    border-bottom: 2px solid var(--pink-soft);
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(216, 27, 96, 0.1);
 }
 
 nav {
@@ -60,13 +66,13 @@ nav {
 
 .logo {
     font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
-    color: var(--accent-color);
-    font-weight: bold;
+    font-size: 1.8rem;
+    color: var(--pink-dark);
 }
 
 .logo span {
-    color: var(--pink-dark);
+    color: var(--pink-medium);
+    font-weight: normal;
 }
 
 nav ul {
@@ -75,75 +81,76 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 25px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text-main);
     font-weight: 500;
-    transition: 0.3s;
     font-size: 0.9rem;
-    text-transform: uppercase;
+    text-transform: lowercase; /* Vibes estetik */
+    transition: var(--transition);
 }
 
 nav ul li a:hover {
-    color: var(--accent-color);
-    border-bottom: 2px pink dotted;
+    color: var(--pink-dark);
+    letter-spacing: 1px;
 }
 
 /* --- Hero Section --- */
 .hero {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 80px 10%;
-    background: linear-gradient(135deg, var(--pink-soft) 0%, var(--purple-light) 100%);
+    justify-content: center;
+    gap: 50px;
+    padding: 100px 10%;
+    background: linear-gradient(to bottom, var(--pink-light), var(--white));
     min-height: 80vh;
+}
+
+.hero-content {
+    max-width: 500px;
 }
 
 .hero-content h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: 4rem;
-    color: var(--accent-color);
-    margin-bottom: 10px;
-}
-
-.hero-content p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    max-width: 500px;
+    font-size: 4.5rem;
+    color: var(--pink-dark);
+    margin: 10px 0;
+    line-height: 1;
 }
 
 .btn-hero {
     display: inline-block;
-    padding: 12px 30px;
-    background-color: var(--white);
-    color: var(--accent-color);
+    margin-top: 25px;
+    padding: 12px 35px;
+    background-color: var(--pink-dark);
+    color: var(--white);
     text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: 0.3s;
-    border: 2px solid var(--pink-dark);
+    border-radius: 30px;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(216, 27, 96, 0.3);
 }
 
 .btn-hero:hover {
-    background-color: var(--pink-dark);
-    color: white;
+    background-color: var(--pink-medium);
     transform: scale(1.05);
 }
 
+/* Gambar Hero - Ukuran Terkontrol */
 .hero-logo img {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     object-fit: cover;
     border-radius: 50%;
-    border: 8px solid var(--white);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 5px solid var(--white);
+    outline: 2px solid var(--pink-dark);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* --- Container & Titles --- */
+/* --- Sections General --- */
 .container {
     padding: 80px 10%;
 }
@@ -151,62 +158,52 @@ nav ul li a:hover {
 h2 {
     text-align: center;
     font-family: 'Dancing Script', cursive;
-    font-size: 3rem;
-    color: var(--accent-color);
-    margin-bottom: 40px;
-    position: relative;
-}
-
-h2::after {
-    content: ' ✨';
-    font-size: 1.5rem;
+    font-size: 2.8rem;
+    color: var(--pink-dark);
+    margin-bottom: 50px;
 }
 
 /* --- About --- */
 .about-container {
-    background-color: var(--white);
-    padding: 30px;
-    border-radius: 20px;
-    border: 2px dashed var(--pink-dark);
-    text-align: center;
+    background-color: var(--pink-light);
+    padding: 40px;
+    border-radius: 30px;
+    border: 2px dashed var(--pink-medium);
     max-width: 800px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .about-container p {
     margin-bottom: 15px;
+    font-size: 1.05rem;
 }
 
 /* --- Proyek Grid --- */
-.bg-light {
-    background-color: #fff9fb;
-}
-
 .proyek-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .proyek-card {
     background: white;
-    border-radius: 15px;
+    border-radius: 20px;
     overflow: hidden;
     text-decoration: none;
     color: inherit;
-    transition: 0.4s;
-    border: 1px solid var(--pink-soft);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    border: 1px solid var(--pink-light);
+    transition: var(--transition);
 }
 
 .proyek-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(255, 133, 161, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(216, 27, 96, 0.15);
 }
 
 .proyek-card img {
     width: 100%;
-    height: 180px;
+    height: 200px; /* Ukuran gambar proyek terkunci agar seragam */
     object-fit: cover;
 }
 
@@ -216,17 +213,16 @@ h2::after {
 }
 
 .proyek-info h3 {
-    color: var(--accent-color);
+    color: var(--pink-dark);
     margin-bottom: 10px;
-    font-size: 1.2rem;
 }
 
-/* --- Medsos --- */
+/* --- Media Sosial --- */
 .medsos-list {
     display: flex;
     justify-content: center;
+    gap: 30px;
     flex-wrap: wrap;
-    gap: 20px;
 }
 
 .medsos-item {
@@ -234,43 +230,45 @@ h2::after {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: var(--text-color);
-    transition: 0.3s;
+    color: var(--pink-dark);
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
 .medsos-item img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 8px;
-    transition: 0.3s;
+    width: 45px; /* Ukuran icon medsos kecil & rapi */
+    height: 45px;
+    margin-bottom: 10px;
+    filter: grayscale(20%);
+    transition: var(--transition);
 }
 
-.medsos-item:hover {
-    color: var(--accent-color);
-    transform: scale(1.1);
+.medsos-item:hover img {
+    filter: grayscale(0%);
+    transform: rotate(10deg);
 }
 
 /* --- Footer --- */
 footer {
     text-align: center;
-    padding: 40px;
-    background-color: var(--pink-soft);
-    color: var(--accent-color);
-    font-weight: 500;
+    padding: 50px;
+    background-color: var(--pink-dark);
+    color: var(--white);
+    margin-top: 50px;
 }
 
-/* Responsive untuk HP */
+/* Responsif Mobile */
 @media (max-width: 768px) {
     .hero {
-        flex-direction: column-reverse;
+        flex-direction: column;
         text-align: center;
+        padding-top: 50px;
     }
     .hero-logo img {
         width: 200px;
         height: 200px;
-        margin-bottom: 20px;
     }
     nav ul {
-        display: none; /* Sembunyikan menu di HP agar rapi, atau buat hamburger menu nanti */
+        display: none; /* Menyembunyikan menu di HP agar tetap bersih */
     }
 }
